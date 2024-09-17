@@ -18,14 +18,6 @@ app.use(cors());
 
 
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '/fe/build')));
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'fe', 'build', 'index.html'));
-    })
-}
-
-
 app.get('/ping', (req, res) => {
     res.send('Hello World');
 })
